@@ -8,15 +8,16 @@ class Controls {
     switch (type) {
       case "KEYS":
         this.#addKeyboardListeners();
-      case "NPC":
+        break;
+      case "DUMMY":
         this.forward = true;
+        break;
     }
-    this.#addKeyboardListeners();
   }
 
   #addKeyboardListeners() {
-    document.onkeydown = (e) => {
-      switch (e.key) {
+    document.onkeydown = (event) => {
+      switch (event.key) {
         case "ArrowLeft":
           this.left = true;
           break;
@@ -30,11 +31,9 @@ class Controls {
           this.reverse = true;
           break;
       }
-      //   console.table(this);
     };
-
-    document.onkeyup = (e) => {
-      switch (e.key) {
+    document.onkeyup = (event) => {
+      switch (event.key) {
         case "ArrowLeft":
           this.left = false;
           break;
@@ -48,7 +47,6 @@ class Controls {
           this.reverse = false;
           break;
       }
-      //   console.table(this);
     };
   }
 }
